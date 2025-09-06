@@ -1,11 +1,18 @@
 <x-app-layout>
     <x-container>
-        <x-card class="mb-4">
-            {{ __("Estas logueado") }}
-        </x-card>
-        <x-card>
-            {{ __("Estas logueado") }}
-        </x-card>
+        @foreach ($posts as $post )
+        <a href="" class="">
+            {{ $post->user->name }}
+        </a>
+            <x-card>
+                <h1>Id: {{ $post->id }}</h1>
+                {{ $post->body}}
+                <div class="text-sm text-slate-500">
+                    {{ $post->created_at->diffForHumans() }}
+                </div>
+            </x-card>
+        @endforeach
+        
     </x-container>
     
 </x-app-layout>

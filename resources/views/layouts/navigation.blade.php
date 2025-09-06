@@ -2,12 +2,13 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-end">
         <div class="flex justify-between h-16">
+            <x-nav-link href="/">Home</x-nav-link>
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
-                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-slate-800 dark:text-gray-400 bg-black dark:bg-dark-200 hover:text-slate-600 dark:hover:text-slate-200 focus:outline-none transition ease-in-out duration-150">
+                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-slate-800 dark:text-gray-400 bg-white dark:bg-dark-200 hover:text-slate-600 dark:hover:text-sla   te-200 focus:outline-none transition ease-in-out duration-150">
                             <div>{{ Auth::user()->name }}</div>
 
                             <div class="ms-1">
@@ -22,6 +23,13 @@
                     </x-slot>
 
                     <x-slot name="content">
+                        <!-- My Publishments -->
+                         <x-dropdown-link :href="route('dashboard', ['for-my'=>true])">
+                            {{ __('My Posts') }}
+                        </x-dropdown-link>
+
+
+
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
